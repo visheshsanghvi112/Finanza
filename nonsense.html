@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Calculator</title>
+<style>
+    /* Style for slides */
+    .slide {
+        display: none;
+    }
+    /* Style for active slide */
+    .active {
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+<h2>Loan Calculator</h2>
+
+<!-- Radio buttons for selecting loan type -->
+<input type="radio" id="longTerm" name="loanType" checked>
+<label for="longTerm">Long Term Loan</label>
+<input type="radio" id="shortTerm" name="loanType">
+<label for="shortTerm">Short Term Loan</label>
+
+<!-- Slides for different loan types -->
+<div id="longTermLoan" class="slide active">
+    <!-- Long term loan calculation form -->
+    <h3>Long Term Loan Calculator</h3>
+    <!-- Your long term loan calculation form goes here -->
+</div>
+
+<div id="shortTermLoan" class="slide">
+    <!-- Short term loan calculation form -->
+    <h3>Short Term Loan Calculator</h3>
+    <!-- Your short term loan calculation form goes here -->
+</div>
+
+<script>
+    // Function to switch between slides based on selected radio button
+    function showSlide() {
+        var longTerm = document.getElementById("longTerm");
+        var shortTerm = document.getElementById("shortTerm");
+        var longTermSlide = document.getElementById("longTermLoan");
+        var shortTermSlide = document.getElementById("shortTermLoan");
+
+        if (longTerm.checked) {
+            longTermSlide.classList.add("active");
+            shortTermSlide.classList.remove("active");
+        } else if (shortTerm.checked) {
+            shortTermSlide.classList.add("active");
+            longTermSlide.classList.remove("active");
+        }
+    }
+
+    // Event listener for radio button change
+    var radioButtons = document.querySelectorAll('input[name="loanType"]');
+    radioButtons.forEach(function(button) {
+        button.addEventListener("change", showSlide);
+    });
+</script>
+
+</body>
+</html>
